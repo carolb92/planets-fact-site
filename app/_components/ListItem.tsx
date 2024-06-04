@@ -5,36 +5,47 @@ type ListItemProps = {
 };
 
 type ColorVariants = {
-	[key: string]: string;
+	[key: string]: string[];
 };
 
 function ListItem({ planet }: ListItemProps) {
 	const colorVariants: ColorVariants = {
-		mercury: "bg-gray-blue",
-		venus: "bg-light-orange",
-		earth: "bg-blue",
-		mars: "bg-red",
-		jupiter: "bg-dark-orange",
-		saturn: "bg-light-orange",
-		uranus: "bg-green",
-		neptune: "bg-blue",
+		mercury: ["bg-gray-blue", "border-gray-blue"],
+		venus: ["bg-light-orange", "border-light-orange"],
+		earth: ["bg-blue", "border-blue"],
+		mars: ["bg-red", "border-red"],
+		jupiter: ["bg-dark-orange", "border-dark-orange"],
+		saturn: ["bg-light-orange", "border-light-orange"],
+		uranus: ["bg-green", "border-green"],
+		neptune: ["bg-blue", "border-blue"],
 	};
 
-	console.log(colorVariants[planet.toLowerCase()]);
+	function getColorVariant(property: string) {
+		return property === "bg"
+			? colorVariants[planet.toLowerCase()][0]
+			: colorVariants[planet.toLowerCase()][1];
+	}
 	return (
 		<>
-			<li className="p-4">
-				<Link href={`/${planet}`} className="flex p-4 pl-0 items-center">
+			<li
+				className={`p-4 md:p-2 lg:flex justify-center lg:py-6 hover:border-t-4 ${getColorVariant(
+					"border"
+				)} hover:cursor-pointer`}
+			>
+				<Link
+					href={`/${planet}`}
+					className={`flex p-4 pl-0 items-center lg:p-2 lg:pt-4`}
+				>
 					<div
-						className={`h-5 w-5 rounded-full mr-6 ${
-							colorVariants[planet.toLowerCase()]
-						}`}
+						className={`h-5 w-5 rounded-full mr-6 ${getColorVariant(
+							"bg"
+						)} md:hidden`}
 					></div>
 					<span className="flex justify-between w-full items-center">
 						<span className="uppercase text-sm font-leagueSpartan tracking-widest">
 							{planet}
 						</span>
-						<span className="">
+						<span className="md:hidden">
 							<svg
 								width="6"
 								height="10"

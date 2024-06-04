@@ -33,9 +33,9 @@ function Navbar({ data }: { data: NavbarProps }) {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<nav className="w-full">
-			<div className="flex justify-between p-4 border-b border-light-gray">
-				<h1 className="font-antonio text-lg font-bold uppercase">
+		<nav className="w-full md:py-3 lg:flex justify-between items-center lg:pt-0">
+			<div className="flex justify-between p-4 border-b border-light-gray md:justify-center md:border-none md:p-8">
+				<h1 className="font-antonio text-lg font-bold uppercase tracking-wide md:text-[28px] md:font-medium">
 					THE PLANETS
 				</h1>
 				{/* <ul className="flex max-md:hidden">
@@ -44,7 +44,7 @@ function Navbar({ data }: { data: NavbarProps }) {
 					))}
 				</ul> */}
 				<div
-					className="pr-1"
+					className="pr-1 md:hidden"
 					role="button"
 					onClick={(e) => setOpen((open) => !open)}
 				>
@@ -64,8 +64,9 @@ function Navbar({ data }: { data: NavbarProps }) {
 					</svg>
 				</div>
 			</div>
+			{/* // mobile view  */}
 			{open && (
-				<div>
+				<div className="md:hidden">
 					<ul className="py-2">
 						{data.map((dataItem) => (
 							<ListItem planet={dataItem.name} key={dataItem.name} />
@@ -73,6 +74,14 @@ function Navbar({ data }: { data: NavbarProps }) {
 					</ul>
 				</div>
 			)}
+			{/* tablet and above */}
+			<div className="max-sm:hidden flex justify-evenly border-b border-light-gray p-3 lg:border-none lg:pt-0">
+				<ul className="flex">
+					{data.map((dataItem) => (
+						<ListItem planet={dataItem.name} key={dataItem.name} />
+					))}
+				</ul>
+			</div>
 		</nav>
 	);
 }
