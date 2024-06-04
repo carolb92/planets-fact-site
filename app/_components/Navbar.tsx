@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import ListItem from "./ListItem";
+import Image from "next/image";
 
 type NavbarData = {
 	name: string;
@@ -39,29 +40,21 @@ function Navbar({ data }: { data: NavbarProps }) {
 					THE PLANETS
 				</h1>
 				{/* <ul className="flex max-md:hidden">
-					{data.map((dataItem) => (
-						<ListItem planet={dataItem.name} key={dataItem.name} />
-					))}
-				</ul> */}
+          {data.map((dataItem) => (
+            <ListItem planet={dataItem.name} key={dataItem.name} />
+          ))}
+        </ul> */}
 				<div
 					className="pr-1 md:hidden"
 					role="button"
 					onClick={(e) => setOpen((open) => !open)}
 				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						className="h-5 w-5"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-					>
-						<path
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth="2"
-							d="M4 6h16M4 12h8m-8 6h16"
-						/>
-					</svg>
+					<Image
+						src="/icon-hamburger.svg"
+						alt="hamburger icon"
+						width={25}
+						height={25}
+					/>
 				</div>
 			</div>
 			{/* // mobile view  */}

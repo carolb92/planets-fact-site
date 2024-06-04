@@ -39,7 +39,7 @@ export default async function RootLayout({
 		<html lang="en">
 			{/* data-theme={"planetary"} */}
 			<body
-				className={`${antonio.variable} ${leagueSpartan.variable} bg-night-sky text-white box-border`}
+				className={`${antonio.variable} ${leagueSpartan.variable} bg-night-sky bg-[url('/background-stars.svg')] text-white box-border`}
 			>
 				<Navbar data={data} />
 				{children}
