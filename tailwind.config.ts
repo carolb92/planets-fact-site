@@ -1,12 +1,22 @@
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+const config = {
+	darkMode: ["class"],
 	content: [
-		"./pages/**/*.{js,ts,jsx,tsx,mdx}",
-		"./components/**/*.{js,ts,jsx,tsx,mdx}",
-		"./app/**/*.{js,ts,jsx,tsx,mdx}",
+		"./pages/**/*.{ts,tsx}",
+		"./components/**/*.{ts,tsx}",
+		"./app/**/*.{ts,tsx}",
+		"./src/**/*.{ts,tsx}",
 	],
+	prefix: "",
 	theme: {
+		container: {
+			center: true,
+			padding: "2rem",
+			screens: {
+				"2xl": "1400px",
+			},
+		},
 		extend: {
 			backgroundImage: {
 				"gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -31,30 +41,23 @@ const config: Config = {
 				"night-sky": "#070724",
 				"gray-blue": "#DEF4FC",
 			},
+			keyframes: {
+				"accordion-down": {
+					from: { height: "0" },
+					to: { height: "var(--radix-accordion-content-height)" },
+				},
+				"accordion-up": {
+					from: { height: "var(--radix-accordion-content-height)" },
+					to: { height: "0" },
+				},
+			},
+			animation: {
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+			},
 		},
 	},
-	plugins: [require("daisyui")],
-	daisyui: {
-		themes: false,
-		// [
-		// 	{
-		// 		planetary: {
-		// 			...require("daisyui/src/theming/themes")["planetary"],
-		// 			darkGray: "#38384F",
-		// 			lightGray: "#838391",
-		// 			teal: "#419EBB",
-		// 			lightOrange: "#EDA249",
-		// 			purple: "#6F2ED6",
-		// 			darkOrange: "#D14C32",
-		// 			red: "#D83A34",
-		// 			burntOrange: "#CD5120",
-		// 			green: "#1EC2A4",
-		// 			blue: "#2D68F0",
-		// 			nightSky: "#070724",
-		// 			grayBlue: "#DEF4FC",
-		// 		},
-		// 	},
-		// ],
-	},
-};
+	plugins: [require("tailwindcss-animate")],
+} satisfies Config;
+
 export default config;
