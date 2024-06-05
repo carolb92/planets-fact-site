@@ -33,6 +33,10 @@ type NavbarProps = NavbarData[];
 function Navbar({ data }: { data: NavbarProps }) {
 	const [open, setOpen] = useState(false);
 	// TODO: transition effect on menu opening
+
+	function handleClick() {
+		setOpen((open) => !open);
+	}
 	return (
 		<nav className="w-full md:py-3 lg:flex justify-between items-center lg:pt-0 bg-night-sky">
 			<div className="flex justify-between p-6 border-b border-light-gray md:justify-center md:border-none md:p-8">
@@ -47,11 +51,7 @@ function Navbar({ data }: { data: NavbarProps }) {
             <ListItem planet={dataItem.name} key={dataItem.name} />
           ))}
         </ul> */}
-				<div
-					className="pr-1 md:hidden"
-					role="button"
-					onClick={(e) => setOpen((open) => !open)}
-				>
+				<div className="pr-1 md:hidden" role="button" onClick={handleClick}>
 					<Image
 						src="/icon-hamburger.svg"
 						alt="hamburger icon"
@@ -65,7 +65,11 @@ function Navbar({ data }: { data: NavbarProps }) {
 				<div className="absolute top-[82px] left-0 w-full min-h-screen bg-night-sky z-10 md:hidden">
 					<ul className="py-2">
 						{data.map((dataItem) => (
-							<ListItem planet={dataItem.name} key={dataItem.name} />
+							<ListItem
+								planet={dataItem.name}
+								key={dataItem.name}
+								onClick={handleClick}
+							/>
 						))}
 					</ul>
 				</div>

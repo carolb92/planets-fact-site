@@ -2,13 +2,14 @@ import Link from "next/link";
 
 type ListItemProps = {
 	planet: string;
+	onClick?: () => void;
 };
 
 type ColorVariants = {
 	[key: string]: string[];
 };
 
-function ListItem({ planet }: ListItemProps) {
+function ListItem({ planet, onClick }: ListItemProps) {
 	const colorVariants: ColorVariants = {
 		mercury: ["bg-gray-blue", "border-gray-blue"],
 		venus: ["bg-light-orange", "border-light-orange"],
@@ -31,6 +32,7 @@ function ListItem({ planet }: ListItemProps) {
 				className={`p-4 md:p-2 lg:flex justify-center lg:py-6 hover:border-t-4 ${getColorVariant(
 					"border"
 				)} hover:cursor-pointer`}
+				onClick={onClick}
 			>
 				<Link
 					href={`/${planet.toLowerCase()}`}
