@@ -33,7 +33,7 @@ function ListItem({ planet }: ListItemProps) {
 				)} hover:cursor-pointer`}
 			>
 				<Link
-					href={`/${planet}`}
+					href={`/${planet.toLowerCase()}`}
 					className={`flex p-4 pl-0 items-center lg:p-2 lg:pt-4`}
 				>
 					<div
@@ -59,12 +59,13 @@ function ListItem({ planet }: ListItemProps) {
 					</span>
 				</Link>
 			</li>
-			{
+			{/* {
 				// if the planet is not neptune, return an hr element
 				planet.toLowerCase() !== "neptune" && (
 					<hr className="border-[#979797]" />
 				)
-			}
+			} */}
+			<hr className="border-[#979797]" />
 		</>
 	);
 }
