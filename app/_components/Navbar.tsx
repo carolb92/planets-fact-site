@@ -32,13 +32,16 @@ type NavbarProps = NavbarData[];
 
 function Navbar({ data }: { data: NavbarProps }) {
 	const [open, setOpen] = useState(false);
-
+	// TODO: transition effect on menu opening
 	return (
-		<nav className="w-full md:py-3 lg:flex justify-between items-center lg:pt-0">
-			<div className="flex justify-between p-4 border-b border-light-gray md:justify-center md:border-none md:p-8">
-				<h1 className="font-antonio text-lg font-bold uppercase tracking-wide md:text-[28px] md:font-medium">
+		<nav className="w-full md:py-3 lg:flex justify-between items-center lg:pt-0 bg-night-sky">
+			<div className="flex justify-between p-6 border-b border-light-gray md:justify-center md:border-none md:p-8">
+				<a
+					href="/"
+					className="font-antonio text-lg font-bold uppercase tracking-wide md:text-[28px] md:font-medium"
+				>
 					THE PLANETS
-				</h1>
+				</a>
 				{/* <ul className="flex max-md:hidden">
           {data.map((dataItem) => (
             <ListItem planet={dataItem.name} key={dataItem.name} />
@@ -59,7 +62,7 @@ function Navbar({ data }: { data: NavbarProps }) {
 			</div>
 			{/* // mobile view  */}
 			{open && (
-				<div className="md:hidden">
+				<div className="absolute top-[82px] left-0 w-full min-h-screen bg-night-sky z-10 md:hidden">
 					<ul className="py-2">
 						{data.map((dataItem) => (
 							<ListItem planet={dataItem.name} key={dataItem.name} />
