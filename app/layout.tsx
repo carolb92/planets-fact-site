@@ -39,10 +39,10 @@ export default async function RootLayout({
 		<html lang="en">
 			{/* data-theme={"planetary"} */}
 			<body
-				className={`${antonio.variable} ${leagueSpartan.variable} bg-night-sky bg-[url('/background-stars.svg')] text-white box-border`}
+				className={`${antonio.variable} ${leagueSpartan.variable} bg-night-sky bg-[url('/background-stars.svg')] text-white box-border min-h-screen flex flex-col`}
 			>
 				<Navbar data={data} />
-				{children}
+				<div className="flex grow">{children}</div>
 			</body>
 		</html>
 	);
