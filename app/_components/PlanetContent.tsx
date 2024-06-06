@@ -18,7 +18,7 @@ const PlanetContent: React.FC<PlanetContentProps> = ({
 	return (
 		<>
 			<div className="flex flex-col">
-				<Image alt="mercury cartoon" src={image} height={300} width={300} />
+				<Image alt={`${planet} cartoon`} src={image} height={300} width={300} />
 			</div>
 			<h2>{planet}</h2>
 			<p>{content}</p>
