@@ -16,15 +16,21 @@ const PlanetContent: React.FC<PlanetContentProps> = ({
 	image,
 }) => {
 	return (
-		<>
-			<div className="flex flex-col">
-				<Image alt={`${planet} cartoon`} src={image} height={300} width={300} />
+		<div className="flex flex-col justify-between items-center p-10 pt-20 gap-6">
+			<div>
+				<Image
+					alt={`${planet} cartoon`}
+					src={image}
+					height={100}
+					width={100}
+					className="py-5"
+				/>
 			</div>
-			<h2>{planet}</h2>
-			<p>{content}</p>
-			<span>
+			<h2 className="text-4xl font-antonio font-medium uppercase">{planet}</h2>
+			<p className="text-spartan text-sm leading-6">{content}</p>
+			<span className="flex gap-2">
 				Source:
-				<Link href={source}>
+				<Link href={source} className="flex gap-2 underline">
 					<span>Wikipedia</span>
 					<span>
 						<Image
@@ -36,7 +42,7 @@ const PlanetContent: React.FC<PlanetContentProps> = ({
 					</span>
 				</Link>
 			</span>
-		</>
+		</div>
 	);
 };
 

@@ -1,31 +1,16 @@
+"use client";
 import Link from "next/link";
+import useColorVariants from "../_hooks/useColorVariants";
+import { use } from "react";
 
 type ListItemProps = {
 	planet: string;
 	onClick?: () => void;
 };
 
-type ColorVariants = {
-	[key: string]: string[];
-};
-
 function ListItem({ planet, onClick }: ListItemProps) {
-	const colorVariants: ColorVariants = {
-		mercury: ["bg-gray-blue", "border-gray-blue"],
-		venus: ["bg-light-orange", "border-light-orange"],
-		earth: ["bg-blue", "border-blue"],
-		mars: ["bg-red", "border-red"],
-		jupiter: ["bg-dark-orange", "border-dark-orange"],
-		saturn: ["bg-light-orange", "border-light-orange"],
-		uranus: ["bg-green", "border-green"],
-		neptune: ["bg-blue", "border-blue"],
-	};
+	const { getColorVariant } = useColorVariants(planet);
 
-	function getColorVariant(property: string) {
-		return property === "bg"
-			? colorVariants[planet.toLowerCase()][0]
-			: colorVariants[planet.toLowerCase()][1];
-	}
 	return (
 		<>
 			<li

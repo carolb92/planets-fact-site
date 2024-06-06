@@ -1,6 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import PlanetContent from "./PlanetContent";
 import PlanetFacts from "./PlanetFacts";
+import useColorVariants from "@/app/_hooks/useColorVariants";
 
 type PlanetProps = {
 	// mobile: boolean;
@@ -39,22 +40,45 @@ const Planet: React.FC<PlanetProps> = ({
 	temperature,
 	images,
 }) => {
+	const { getColorVariant } = useColorVariants(planet);
+	console.log(getColorVariant("border", true));
+
 	return (
-		<div className="max-w-full">
-			<div className="flex">
+		<div className="max-w-full flex flex-col justify-between min-h-full">
+			<div className="flex min-w-full">
 				<Tabs defaultValue="overview">
-					<TabsList>
-						<TabsTrigger value="overview">
+					<TabsList className="flex min-w-full justify-between bg-night-sky">
+						<TabsTrigger
+							value="overview"
+							// max-sm:data-[state=active]:border-b-2
+							// className={`uppercase ${getColorVariant(
+							// 	"border",
+							// 	true
+							// )} ${getColorVariant("bg", true)}`}
+							className="uppercase"
+							isActiveState
+							planet={planet}
+						>
 							<span className="max-sm:hidden">01</span>
 							<span>Overview</span>
 						</TabsTrigger>
-						<TabsTrigger value="structure">
+						<TabsTrigger
+							value="structure"
+							className="uppercase"
+							isActiveState
+							planet={planet}
+						>
 							<span className="max-sm:hidden">02</span>
 							{/* <span>{`${!mobile && "Internal "}Structure`}</span> */}
 							<span className="max-sm:hidden">Internal </span>
 							<span>Structure</span>
 						</TabsTrigger>
-						<TabsTrigger value="geology">
+						<TabsTrigger
+							value="geology"
+							className="uppercase"
+							isActiveState
+							planet={planet}
+						>
 							<span className="max-sm:hidden">03</span>
 							<span className="max-sm:hidden">Surface </span>
 							<span>Geology</span>

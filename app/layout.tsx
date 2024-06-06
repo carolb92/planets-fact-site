@@ -12,6 +12,7 @@ const antonio = Antonio({
 	variable: "--font-antonio",
 });
 
+//TODO: spartan font not being applied in components?
 const leagueSpartan = League_Spartan({
 	subsets: ["latin"],
 	display: "swap",

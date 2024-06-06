@@ -7,6 +7,8 @@ type PlanetFactsProps = {
 	temperature: string;
 };
 
+//TODO: refactor this to list item components?
+
 const PlanetFacts: React.FC<PlanetFactsProps> = ({
 	rotation,
 	revolution,
@@ -14,22 +16,32 @@ const PlanetFacts: React.FC<PlanetFactsProps> = ({
 	temperature,
 }) => {
 	return (
-		<div>
-			<div>
-				<span>Rotation Time</span>
-				<span>{rotation}</span>
+		<div className="flex flex-col gap-4 px-10 pb-10">
+			<div className="flex w-full border justify-between items-center px-4 py-3">
+				<span className="uppercase text-sm font-league-spartan">
+					Rotation Time
+				</span>
+				<span className="uppercase font-antonio text-xl font-medium">
+					{rotation}
+				</span>
 			</div>
-			<div>
-				<span>Revolution Time</span>
-				<span>{revolution}</span>
+			<div className="flex w-full border justify-between items-center px-4 py-3">
+				<span className="uppercase text-sm font-spartan">Revolution Time</span>
+				<span className="uppercase font-antonio text-xl font-medium">
+					{revolution}
+				</span>
 			</div>
-			<div>
-				<span>Radius</span>
-				<span>{radius}</span>
+			<div className="flex w-full border justify-between items-center px-4 py-3">
+				<span className="uppercase text-sm font-spartan">Radius</span>
+				<span className="uppercase font-antonio text-xl font-medium">
+					{radius}
+				</span>
 			</div>
-			<div>
-				<span>Average Temp.</span>
-				<span>{temperature}</span>
+			<div className="flex w-full border justify-between items-center px-4 py-3">
+				<span className="uppercase text-sm font-spartan">Average Temp.</span>
+				<span className="uppercase font-antonio text-xl font-medium">
+					{temperature}
+				</span>
 			</div>
 		</div>
 	);
