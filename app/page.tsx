@@ -9,8 +9,8 @@ export default function Home() {
 				Welcome to the planets fact site!
 			</h2>
 			<p className="font-leagueSpartan tracking-wide text-justify text-lg">
-				Navigate to your favorite planet to learn more about its structure,
-				surface, and general facts.
+				Navigate to your favorite planet to learn more about its internal
+				structure, surface geology, and general facts.
 			</p>
 			{/* <div className="flex items-center justify-center"> */}
 			<Image
