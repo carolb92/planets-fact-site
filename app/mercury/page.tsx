@@ -11,7 +11,7 @@ const Mercury = () => {
 	return (
 		<div>
 			<Planet
-				mobile={false}
+				// mobile={false}
 				planet={mercury.name}
 				overview={mercury.overview}
 				structure={mercury.structure}

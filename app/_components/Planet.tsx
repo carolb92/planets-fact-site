@@ -3,7 +3,7 @@ import PlanetContent from "./PlanetContent";
 import PlanetFacts from "./PlanetFacts";
 
 type PlanetProps = {
-	mobile: boolean;
+	// mobile: boolean;
 	planet: string;
 	overview: {
 		content: string;
@@ -28,7 +28,7 @@ type PlanetProps = {
 	};
 };
 const Planet: React.FC<PlanetProps> = ({
-	mobile,
+	// mobile,
 	planet,
 	overview,
 	structure,
@@ -45,16 +45,19 @@ const Planet: React.FC<PlanetProps> = ({
 				<Tabs defaultValue="overview">
 					<TabsList>
 						<TabsTrigger value="overview">
-							{!mobile && <span>01</span>}
+							<span className="max-sm:hidden">01</span>
 							<span>Overview</span>
 						</TabsTrigger>
 						<TabsTrigger value="structure">
-							{!mobile && <span>02</span>}
-							<span>{`${!mobile && "Internal "}Structure`}</span>
+							<span className="max-sm:hidden">02</span>
+							{/* <span>{`${!mobile && "Internal "}Structure`}</span> */}
+							<span className="max-sm:hidden">Internal </span>
+							<span>Structure</span>
 						</TabsTrigger>
 						<TabsTrigger value="geology">
-							{!mobile && <span>03</span>}
-							<span>{`${!mobile && "Surface "}Geology`}</span>
+							<span className="max-sm:hidden">03</span>
+							<span className="max-sm:hidden">Surface </span>
+							<span>Geology</span>
 						</TabsTrigger>
 					</TabsList>
 					<TabsContent value="overview">
@@ -83,12 +86,14 @@ const Planet: React.FC<PlanetProps> = ({
 					</TabsContent>
 				</Tabs>
 			</div>
-			<PlanetFacts
-				rotation={rotation}
-				revolution={revolution}
-				radius={radius}
-				temperature={temperature}
-			/>
+			<div>
+				<PlanetFacts
+					rotation={rotation}
+					revolution={revolution}
+					radius={radius}
+					temperature={temperature}
+				/>
+			</div>
 		</div>
 	);
 };
