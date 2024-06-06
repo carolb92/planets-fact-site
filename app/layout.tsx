@@ -48,7 +48,7 @@ export default async function RootLayout(
 				className={`${antonio.variable} ${leagueSpartan.variable} bg-night-sky bg-[url('/background-stars.svg')] text-white box-border min-h-screen flex flex-col`}
 			>
 				<DataProvider data={data}>
-					<Navbar data={data} />
+					<Navbar />
 					<div className="flex grow max-w-full">{children}</div>
 				</DataProvider>
 			</body>
