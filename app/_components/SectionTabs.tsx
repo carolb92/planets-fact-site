@@ -41,7 +41,7 @@ export function Tab({
 			onClick={handleClick}
 			className={`uppercase font-leagueSpartan text-xs px-2 py-4 flex items-center justify-center tracking-[1.93px] ${
 				isActiveTab
-					? `text-white border-b-[3px] ${borderColor}` // border-b-teal
+					? `text-white border-b-[3px] ${borderColor}`
 					: "text-gray-400 border-b-0"
 			}`}
 		>
@@ -51,13 +51,13 @@ export function Tab({
 		<div
 			className={`tracking-[2.57px] items-center uppercase cursor-pointer w-[350px] h-[48px] flex gap-x-8 px-6 font-leagueSpartan font-semibold text-sm ${
 				isActiveTab
-					? `${bgColor} text-white` //bg-teal
-					: "bg-transparent border border-[#D8D8D8]/20" //TODO: add border color to tailwind config
+					? `${bgColor} text-white`
+					: "bg-transparent border border-lightest-gray/20"
 			}`}
 			onClick={handleClick}
 		>
 			<span className="text-gray-400">{indexDisplay}</span>
-			<span className="">{tabName}</span>
+			<span>{tabName}</span>
 		</div>
 	);
 }
@@ -74,7 +74,7 @@ export default function SectionTabs({
 	planetName,
 }: SectionTabsProps) {
 	return (
-		<div className="flex justify-around border-b border-[#D8D8D8]/20 w-full md:border-none md:flex-col md:gap-y-3 md:justify-center">
+		<div className="flex justify-around border-b border-lightest-gray/20 w-full md:border-none md:flex-col md:gap-y-3 md:justify-center">
 			{tabNames.map((tab, index) => {
 				return (
 					<Tab
