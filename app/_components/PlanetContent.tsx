@@ -5,7 +5,6 @@ import { PlanetName, SectionName } from "../_types";
 
 type PlanetContentProps = {
 	planet: PlanetName;
-	// activeSection: string;
 	sectionData: {
 		content: string;
 		source: string;
@@ -13,20 +12,8 @@ type PlanetContentProps = {
 };
 export default function PlanetContent({
 	planet,
-	// activeSection,
 	sectionData,
 }: PlanetContentProps) {
-	// function processSection(sectionName: string) {
-	// 	const sectionNameArr = sectionName.split(" ");
-	// 	if (sectionNameArr.length > 1) return sectionNameArr[1];
-	// 	return sectionName;
-	// }
-
-	// const section = processSection(activeSection);
-
-	// const sectionContent = getPlanetSectionData(planet, section as SectionName);
-	// const textContent = sectionContent.content;
-	// const source = sectionContent.source;
 	return (
 		<div className="flex flex-col justify-center items-center mx-[30px] gap-y-5 md:items-start lg:mx-0 lg:gap-y-3 lg:mb-4">
 			<h1 className="font-antonio font-medium text-[40px] text-center uppercase md:text-start lg:text-[3.5rem]">

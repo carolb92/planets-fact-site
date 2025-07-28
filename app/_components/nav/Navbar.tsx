@@ -2,35 +2,7 @@
 import { useState } from "react";
 import ListItem from "./ListItem";
 import Image from "next/image";
-// import { useData } from "../../_context/DataContext";
 import { planetsData } from "@/app/_actions/planetData";
-
-// type NavbarData = {
-// 	name: string;
-// 	overview: {
-// 		content: string;
-// 		source: string;
-// 	};
-// 	structure: {
-// 		content: string;
-// 		source: string;
-// 	};
-// 	geology: {
-// 		content: string;
-// 		source: string;
-// 	};
-// 	rotation: string;
-// 	revolution: string;
-// 	radius: string;
-// 	temperature: string;
-// 	images: {
-// 		planet: string;
-// 		internal: string;
-// 		geology: string;
-// 	};
-// };
-
-// type NavbarProps = NavbarData[];
 
 function Navbar() {
 	const [open, setOpen] = useState(false);
@@ -40,7 +12,6 @@ function Navbar() {
 		setOpen((open) => !open);
 	}
 
-	// const { data } = useData();
 	return (
 		<nav className="w-full md:py-3 lg:flex justify-between items-center lg:pt-0 bg-night-sky">
 			<div className="flex justify-between p-6 border-b border-light-gray md:justify-center md:border-none md:p-8">
@@ -50,11 +21,6 @@ function Navbar() {
 				>
 					THE PLANETS
 				</a>
-				{/* <ul className="flex max-md:hidden">
-          {data.map((dataItem) => (
-            <ListItem planet={dataItem.name} key={dataItem.name} />
-          ))}
-        </ul> */}
 				<div className="pr-1 md:hidden" role="button" onClick={handleClick}>
 					<Image
 						src="/icon-hamburger.svg"

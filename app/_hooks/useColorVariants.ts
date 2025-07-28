@@ -21,12 +21,6 @@ const useColorVariants = (planet: string) => {
 	const getColorVariant = useCallback(
 		(property: Property, isActiveState?: boolean) => {
 			const variant = colorVariants[planet.toLowerCase()];
-			// if (isActiveState && property === "border") {
-			// 	return `max-sm:data-[state=active]:border-b-2 max-sm:data-[state=active]:${variant[1]}`;
-			// }
-			// if (isActiveState && property === "bg") {
-			// 	return `md:data-[state=active]:${variant[0]}`;
-			// }
 			return property === "bg" ? variant[0] : variant[1];
 		},
 		[planet]
