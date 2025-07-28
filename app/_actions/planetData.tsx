@@ -4,7 +4,7 @@ export function findPlanet(planetName: PlanetName) {
 	const planet = planetsData.find(
 		(planet) => planet.name.toLowerCase() === planetName
 	);
-	if (!planet) throw new Error(`No data for ${planet}`);
+	if (!planet) throw new Error(`No data for ${planetName}`);
 	return planet;
 }
 
