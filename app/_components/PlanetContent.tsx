@@ -1,38 +1,49 @@
-import React from "react";
+import { getPlanetSectionData } from "../_actions/planetData";
 import Image from "next/image";
 import Link from "next/link";
+import { PlanetName, SectionName } from "../_types";
 
 type PlanetContentProps = {
-	planet: string;
-	content: string;
-	source: string;
-	image: string;
+	planet: PlanetName;
+	// activeSection: string;
+	sectionData: {
+		content: string;
+		source: string;
+	};
 };
-
-const PlanetContent: React.FC<PlanetContentProps> = ({
+export default function PlanetContent({
 	planet,
-	content,
-	source,
-	image,
-}) => {
+	// activeSection,
+	sectionData,
+}: PlanetContentProps) {
+	// function processSection(sectionName: string) {
+	// 	const sectionNameArr = sectionName.split(" ");
+	// 	if (sectionNameArr.length > 1) return sectionNameArr[1];
+	// 	return sectionName;
+	// }
+
+	// const section = processSection(activeSection);
+
+	// const sectionContent = getPlanetSectionData(planet, section as SectionName);
+	// const textContent = sectionContent.content;
+	// const source = sectionContent.source;
 	return (
-		<div className="flex flex-col justify-between items-center p-10 pt-20 gap-6">
-			<div>
-				<Image
-					alt={`${planet} cartoon`}
-					src={image}
-					height={100}
-					width={100}
-					className="py-5"
-				/>
-			</div>
-			<h2 className="text-4xl font-antonio font-medium uppercase">{planet}</h2>
-			<p className="text-spartan text-sm leading-6">{content}</p>
-			<span className="flex gap-2">
+		<div className="flex flex-col justify-center items-center mx-[30px] gap-y-5 md:items-start lg:mx-0 lg:gap-y-3 lg:mb-4">
+			<h1 className="font-antonio font-medium text-[40px] text-center uppercase md:text-start lg:text-[3.5rem]">
+				{planet}
+			</h1>
+			<p className="font-leagueSpartan text-sm text-center font-normal leading-6 md:text-start md:text-base">
+				{sectionData.content}
+			</p>
+			<span className="text-white/50 flex gap-x-1 text-sm">
 				Source:
-				<Link href={source} className="flex gap-2 underline">
+				<Link
+					href={sectionData.source}
+					className="flex gap-2 underline items-center"
+					target="_blank"
+				>
 					<span>Wikipedia</span>
-					<span>
+					<span className="h-fit">
 						<Image
 							alt="source icon"
 							src="/icon-source.svg"
@@ -44,6 +55,4 @@ const PlanetContent: React.FC<PlanetContentProps> = ({
 			</span>
 		</div>
 	);
-};
-
-export default PlanetContent;
+}

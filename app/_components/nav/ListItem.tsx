@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
-import useColorVariants from "../_hooks/useColorVariants";
-import { use } from "react";
+import useColorVariants from "../../_hooks/useColorVariants";
 
 type ListItemProps = {
 	planet: string;
