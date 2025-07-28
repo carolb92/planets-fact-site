@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Antonio, League_Spartan } from "next/font/google";
-import Navbar from "./_components/Navbar";
-import { promises as fs } from "fs";
+import Navbar from "./_components/nav/Navbar";
 import React from "react";
-import { DataProvider } from "./_context/DataContext";
 
 const antonio = Antonio({
 	subsets: ["latin"],
@@ -12,7 +10,6 @@ const antonio = Antonio({
 	variable: "--font-antonio",
 });
 
-//TODO: spartan font not being applied in components?
 const leagueSpartan = League_Spartan({
 	subsets: ["latin"],
 	display: "swap",
@@ -25,33 +22,18 @@ export const metadata: Metadata = {
 	description: "a simple site to learn about the planets in our solar system",
 };
 
-export default async function RootLayout(
-	{
-		children,
-	}: Readonly<{
-		// children: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
-		children: React.ReactNode;
-	}>,
-	...pageProps: any
-) {
-	// read the data.json file
-	// the readFile function returns the contents as a string
-	// the process.cwd function gets the current working directory, to which we append the relative path to our file
-	// the utf8 argument tells Node to interpret the file as a UFT-8 encoded text file
-	const file = await fs.readFile(process.cwd() + "/data.json", "utf8");
-	// use JSON.parse to turn the contents returned from the readFile function into an object
-	const data = JSON.parse(file);
-
+export default async function RootLayout({
+	children,
+}: Readonly<{
+	children: React.ReactNode;
+}>) {
 	return (
 		<html lang="en">
-			{/* data-theme={"planetary"} */}
 			<body
 				className={`${antonio.variable} ${leagueSpartan.variable} bg-night-sky bg-[url('/background-stars.svg')] text-white box-border min-h-screen flex flex-col`}
 			>
-				<DataProvider data={data}>
-					<Navbar />
-					<div className="flex grow max-w-full">{children}</div>
-				</DataProvider>
+				<Navbar />
+				<div className="flex grow max-w-full lg:mx-[150px]">{children}</div>
 			</body>
 		</html>
 	);

@@ -30,6 +30,7 @@ const config = {
 			colors: {
 				"dark-gray": "#38384F",
 				"light-gray": "#838391",
+				"lightest-gray": "#D8D8D8",
 				teal: "#419EBB",
 				"light-orange": "#EDA249",
 				purple: "#6F2ED6",

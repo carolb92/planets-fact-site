@@ -1,123 +1,70 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+"use client";
 import PlanetContent from "./PlanetContent";
 import PlanetFacts from "./PlanetFacts";
-import useColorVariants from "@/app/_hooks/useColorVariants";
+import SectionTabs from "./SectionTabs";
+import { useState } from "react";
+import { SectionName, PlanetName, TabName } from "../_types";
+import { usePlanetData } from "../_hooks/usePlanetData";
+import PlanetImage from "./PlanetImage";
+import { useBreakpoint } from "../_hooks/useBreakpoint";
 
-type PlanetProps = {
-	// mobile: boolean;
-	planet: string;
-	overview: {
-		content: string;
-		source: string;
-	};
-	structure: {
-		content: string;
-		source: string;
-	};
-	geology: {
-		content: string;
-		source: string;
-	};
-	rotation: string;
-	revolution: string;
-	radius: string;
-	temperature: string;
-	images: {
-		planet: string;
-		internal: string;
-		geology: string;
-	};
-};
-const Planet: React.FC<PlanetProps> = ({
-	// mobile,
-	planet,
-	overview,
-	structure,
-	geology,
-	rotation,
-	revolution,
-	radius,
-	temperature,
-	images,
-}) => {
-	const { getColorVariant } = useColorVariants(planet);
-	console.log(getColorVariant("border", true));
+const Planet = ({ planet }: { planet: PlanetName }) => {
+	const breakpoint = useBreakpoint();
 
-	return (
+	const { facts, images, sectionData } = usePlanetData(
+		planet.toLowerCase() as PlanetName
+	);
+
+	function processSection(sectionName: string) {
+		const sectionNameArr = sectionName.split(" ");
+		if (sectionNameArr.length > 1) return sectionNameArr[1];
+		return sectionName;
+	}
+
+	const [activeTab, setActiveTab] = useState<TabName>("overview");
+	const section = processSection(activeTab);
+
+	return breakpoint === "mobile" ? (
 		<div className="max-w-full flex flex-col justify-between min-h-full">
-			<div className="flex min-w-full">
-				<Tabs defaultValue="overview">
-					<TabsList className="flex min-w-full justify-between bg-night-sky">
-						<TabsTrigger
-							value="overview"
-							// max-sm:data-[state=active]:border-b-2
-							// className={`uppercase ${getColorVariant(
-							// 	"border",
-							// 	true
-							// )} ${getColorVariant("bg", true)}`}
-							className="uppercase"
-							isActiveState
-							planet={planet}
-						>
-							<span className="max-sm:hidden">01</span>
-							<span>Overview</span>
-						</TabsTrigger>
-						<TabsTrigger
-							value="structure"
-							className="uppercase"
-							isActiveState
-							planet={planet}
-						>
-							<span className="max-sm:hidden">02</span>
-							{/* <span>{`${!mobile && "Internal "}Structure`}</span> */}
-							<span className="max-sm:hidden">Internal </span>
-							<span>Structure</span>
-						</TabsTrigger>
-						<TabsTrigger
-							value="geology"
-							className="uppercase"
-							isActiveState
-							planet={planet}
-						>
-							<span className="max-sm:hidden">03</span>
-							<span className="max-sm:hidden">Surface </span>
-							<span>Geology</span>
-						</TabsTrigger>
-					</TabsList>
-					<TabsContent value="overview">
-						<PlanetContent
-							planet={planet}
-							content={overview.content}
-							source={overview.source}
-							image={images.planet}
-						/>
-					</TabsContent>
-					<TabsContent value="structure">
-						<PlanetContent
-							planet={planet}
-							content={structure.content}
-							source={structure.source}
-							image={images.internal}
-						/>
-					</TabsContent>
-					<TabsContent value="geology">
-						<PlanetContent
-							planet={planet}
-							content={geology.content}
-							source={geology.source}
-							image={images.geology}
-						/>
-					</TabsContent>
-				</Tabs>
+			<SectionTabs
+				activeTab={activeTab}
+				setActiveTab={setActiveTab}
+				planetName={planet}
+			/>
+			<PlanetImage
+				planetName={planet}
+				images={images}
+				activeSection={activeTab}
+			/>
+			<PlanetContent
+				planet={planet.toLowerCase() as PlanetName}
+				sectionData={sectionData(section as SectionName)}
+			/>
+			<PlanetFacts facts={facts} />
+		</div>
+	) : (
+		<div className="flex flex-col h-full lg:w-full lg:items-center md:justify-between">
+			<div className="flex flex-col lg:flex-row md:h-full lg:w-full lg:justify-between xl:justify-around lg:items-center lg:gap-y-8 md:justify-around">
+				<div className="w-full lg:h-1/2 flex justify-center items-center lg:w-1/3">
+					<PlanetImage
+						planetName={planet}
+						images={images}
+						activeSection={activeTab}
+					/>
+				</div>
+				<div className="flex lg:flex-col md:mx-[30px] lg:gap-y-2 lg:items-start lg:w-[350px] lg:mx-0 xl:w-[375px]">
+					<PlanetContent
+						planet={planet.toLowerCase() as PlanetName}
+						sectionData={sectionData(section as SectionName)}
+					/>
+					<SectionTabs
+						activeTab={activeTab}
+						setActiveTab={setActiveTab}
+						planetName={planet}
+					/>
+				</div>
 			</div>
-			<div>
-				<PlanetFacts
-					rotation={rotation}
-					revolution={revolution}
-					radius={radius}
-					temperature={temperature}
-				/>
-			</div>
+			<PlanetFacts facts={facts} />
 		</div>
 	);
 };

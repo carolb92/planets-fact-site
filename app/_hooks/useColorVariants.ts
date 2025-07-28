@@ -7,7 +7,7 @@ type ColorVariants = {
 type Property = "bg" | "border";
 
 const colorVariants: ColorVariants = {
-	mercury: ["bg-gray-blue", "border-gray-blue"],
+	mercury: ["bg-teal", "border-teal"],
 	venus: ["bg-light-orange", "border-light-orange"],
 	earth: ["bg-blue", "border-blue"],
 	mars: ["bg-red", "border-red"],
@@ -21,12 +21,6 @@ const useColorVariants = (planet: string) => {
 	const getColorVariant = useCallback(
 		(property: Property, isActiveState?: boolean) => {
 			const variant = colorVariants[planet.toLowerCase()];
-			if (isActiveState && property === "border") {
-				return `max-sm:data-[state=active]:border-b-2 max-sm:data-[state=active]:${variant[1]}`;
-			}
-			if (isActiveState && property === "bg") {
-				return `md:data-[state=active]:${variant[0]}`;
-			}
 			return property === "bg" ? variant[0] : variant[1];
 		},
 		[planet]
