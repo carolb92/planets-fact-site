@@ -1,7 +1,6 @@
 "use client";
 import PlanetContent from "./PlanetContent";
 import PlanetFacts from "./PlanetFacts";
-import useColorVariants from "@/app/_hooks/useColorVariants";
 import SectionTabs from "./SectionTabs";
 import { useState } from "react";
 import { SectionName, PlanetName, TabName } from "../_types";
