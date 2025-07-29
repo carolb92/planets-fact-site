@@ -26,7 +26,7 @@ export default function PlanetContent({
 				Source:
 				<Link
 					href={sectionData.source}
-					className="flex gap-2 underline items-center"
+					className="flex gap-1 underline items-center"
 					target="_blank"
 				>
 					<span>Wikipedia</span>
@@ -34,8 +34,8 @@ export default function PlanetContent({
 						<Image
 							alt="source icon"
 							src="/icon-source.svg"
-							height={20}
-							width={20}
+							height={12}
+							width={12}
 						/>
 					</span>
 				</Link>

@@ -41,7 +41,7 @@ export const planetsData: Planet[] = [
 		},
 		structure: {
 			content:
-				"Mercury appears to have a solid silicate crust and mantle overlying a solid, iron sulfide outer core layer, a deeper liquid core layer, and a solid inner core. The planet's density is the second highest in the Solar System at 5.427 g/cm3 , only slightly less than Earth's density.",
+				"Mercury appears to have a solid silicate crust and mantle overlying a solid, iron sulfide outer core layer, a deeper liquid core layer, and a solid inner core. The planet's density is the second highest in the Solar System at 5.427 g/cm³ , only slightly less than Earth's density.",
 			source:
 				"https://en.wikipedia.org/wiki/Mercury_(planet)#Internal_structure",
 		},
@@ -101,7 +101,7 @@ export const planetsData: Planet[] = [
 		},
 		geology: {
 			content:
-				"The total surface area of Earth is about 510 million km2. The continental crust consists of lower density material such as the igneous rocks granite and andesite. Less common is basalt, a denser volcanic rock that is the primary constituent of the ocean floors.",
+				"The total surface area of Earth is about 510 million km². The continental crust consists of lower density material such as the igneous rocks granite and andesite. Less common is basalt, a denser volcanic rock that is the primary constituent of the ocean floors.",
 			source: "https://en.wikipedia.org/wiki/Earth#Surface",
 		},
 		rotation: "0.99 Days",
@@ -178,7 +178,7 @@ export const planetsData: Planet[] = [
 		},
 		structure: {
 			content:
-				"Despite consisting mostly of hydrogen and helium, most of Saturn's mass is not in the gas phase, because hydrogen becomes a non-ideal liquid when the density is above 0.01 g/cm3, which is reached at a radius containing 99.9% of Saturn's mass.",
+				"Despite consisting mostly of hydrogen and helium, most of Saturn's mass is not in the gas phase, because hydrogen becomes a non-ideal liquid when the density is above 0.01 g/cm³, which is reached at a radius containing 99.9% of Saturn's mass.",
 			source: "https://en.wikipedia.org/wiki/Saturn#Internal_structure",
 		},
 		geology: {
@@ -200,7 +200,7 @@ export const planetsData: Planet[] = [
 		name: "Uranus",
 		overview: {
 			content:
-				"Uranus is the seventh planet from the Sun. Its name is a reference to the Greek god of the sky, Uranus according to Greek mythology, was the great-grandfather of Ares. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System.",
+				"Uranus is the seventh planet from the Sun. Its name is a reference to the Greek god of the sky, Uranus, who, according to Greek mythology, was the great-grandfather of Ares. It has the third-largest planetary radius and fourth-largest planetary mass in the Solar System.",
 			source: "https://en.wikipedia.org/wiki/Uranus",
 		},
 		structure: {
