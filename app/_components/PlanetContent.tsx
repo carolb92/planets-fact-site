@@ -15,7 +15,7 @@ export default function PlanetContent({
 	sectionData,
 }: PlanetContentProps) {
 	return (
-		<div className="flex flex-col justify-center items-center mx-[30px] gap-y-5 md:items-start lg:mx-0 lg:gap-y-3 lg:mb-4">
+		<div className="flex flex-col justify-center items-center mx-[30px] gap-y-5 md:items-start lg:mx-0 lg:gap-y-3 lg:mb-4 max-sm:mb-4">
 			<h1 className="font-antonio font-medium text-[40px] text-center uppercase md:text-start lg:text-[3.5rem]">
 				{planet}
 			</h1>
@@ -26,7 +26,7 @@ export default function PlanetContent({
 				Source:
 				<Link
 					href={sectionData.source}
-					className="flex gap-2 underline items-center"
+					className="flex gap-1 underline items-center"
 					target="_blank"
 				>
 					<span>Wikipedia</span>
@@ -34,8 +34,8 @@ export default function PlanetContent({
 						<Image
 							alt="source icon"
 							src="/icon-source.svg"
-							height={20}
-							width={20}
+							height={12}
+							width={12}
 						/>
 					</span>
 				</Link>

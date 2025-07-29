@@ -45,7 +45,7 @@ function Navbar() {
 				</div>
 			)}
 			{/* tablet and above */}
-			<div className="max-sm:hidden flex justify-evenly border-b border-light-gray p-3 lg:border-none lg:pt-0">
+			<div className="max-sm:hidden flex justify-evenly border-b border-light-gray p-3 lg:border-none lg:py-0">
 				<ul className="flex">
 					{planetsData.map((dataItem) => (
 						<ListItem planet={dataItem.name} key={dataItem.name} />
