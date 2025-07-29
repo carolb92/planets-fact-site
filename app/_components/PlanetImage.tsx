@@ -25,7 +25,7 @@ export function SurfaceGeologyImage({
 }: SurfaceGeologyImageProps) {
 	const geologyDimensions = breakpoint === "mobile" ? 75 : 125;
 	return (
-		<div className="relative">
+		<div className="relative max-sm:my-7">
 			<Image
 				src={images.planet}
 				alt={alt}

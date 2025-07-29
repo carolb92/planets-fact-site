@@ -6,7 +6,7 @@ function PlanetFactContainer({
 	value: string;
 }) {
 	return (
-		<div className="flex w-full border border-[#D8D8D8]/20 justify-between items-center px-4 py-3 md:flex-col md:w-[185px] md:items-start md:gap-y-4 md:p-5">
+		<div className="flex w-full border border-[#D8D8D8]/20 justify-between items-center px-4 py-3 md:flex-col md:w-[185px] lg:min-w-fit md:items-start md:gap-y-4 md:p-5">
 			<span className="uppercase text-xs font-semibold tracking-wide font-league-spartan text-light-gray">
 				{title}
 			</span>

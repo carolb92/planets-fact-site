@@ -7,16 +7,12 @@ const tabNames = ["overview", "internal structure", "surface geology"];
 
 export function Tab({
 	tabName,
-	activeBorder,
-	activeBg,
 	activeTab,
 	setActiveTab,
 	index,
 	planetName,
 }: {
 	tabName: TabName;
-	activeBorder?: string;
-	activeBg?: string;
 	activeTab: string;
 	setActiveTab: React.Dispatch<React.SetStateAction<TabName>>;
 	index: number;
@@ -39,7 +35,7 @@ export function Tab({
 		// mobile tabs
 		<div
 			onClick={handleClick}
-			className={`uppercase font-leagueSpartan text-xs px-2 py-4 flex items-center justify-center tracking-[1.93px] ${
+			className={`uppercase font-leagueSpartan text-xs px-2 py-4 flex items-center justify-center tracking-[1.93px] text-center w-1/3 ${
 				isActiveTab
 					? `text-white border-b-[3px] ${borderColor}`
 					: "text-gray-400 border-b-0"
